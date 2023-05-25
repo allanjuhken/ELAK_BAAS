@@ -4,21 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f960929-abdb-4a14-9c44-e3679dd42883" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/elak/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Jump.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Jumper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Manifest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/HibernateUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+    <list default="true" id="2f960929-abdb-4a14-9c44-e3679dd42883" name="Changes" comment="elak_baas project created, Jumper, Jump, Manifest Classes added">
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/JumpDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/JumperDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/ManifestDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/elak/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/elak/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Jump.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Jump.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Manifest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Manifest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,6 +108,13 @@
       <option name="presentableId" value="Default" />
       <updated>1684846302091</updated>
     </task>
+    <task id="LOCAL−00001" summary="elak_baas project created, Jumper, Jump, Manifest Classes added">
+      <created>1684932741780</created>
+      <option name="number" value="LOCAL−00001" />
+      <option name="presentableId" value="LOCAL−00001" />
+      <updated>1684932741783</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -126,5 +127,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="elak_baas project created, Jumper, Jump, Manifest Classes added" />
+    <option name="LAST_COMMIT_MESSAGE" value="elak_baas project created, Jumper, Jump, Manifest Classes added" />
   </component>
 </project>

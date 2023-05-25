@@ -15,7 +15,7 @@ public class Jump {
     @Column(name = "`aircraft`")
     private String aircraft;
     @ManyToOne
-    @JoinColumn(name = "jumper_personal_code")
+    @JoinColumn(name = "personal_code")
     private Jumper jumper;
 
     public Jump(){}

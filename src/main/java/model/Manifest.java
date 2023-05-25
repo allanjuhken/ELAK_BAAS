@@ -1,24 +1,35 @@
 package model;
 
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
-
+@Entity
+@Table(name = "`manifest`", schema = "`elak_baas`")
 public class Manifest {
+    @Id
     private int loadNr;
-    private LocalDate jumpDate;
+    @Column(name = "`load_date`")
+    private LocalDate loadDate;
+    @Column(name = "`aircraft_id`")
     private String planeID;
+    @Column(name = "`load_master`")
     private String loadMaster;
-    private List<Jumper> jumpers;
-    private Jumper jumper;
+    @Column(name = "`on_board`")
+    private String jumpersCodes; // modified, str instead of list
+    @ManyToOne
+    @JoinColumn(name = "personal_code")
+    public Jumper jumper;
+
 
     public Manifest(){}
 
-    public Manifest(int loadNr, LocalDate jumpDate, String planeID, String loadMaster, List<Jumper> jumpers) {
+    public Manifest(int loadNr, LocalDate loadDate, String planeID, String loadMaster, Jumper jumper) {
         this.loadNr = loadNr;
-        this.jumpDate = jumpDate;
+        this.loadDate = loadDate;
         this.planeID = planeID;
         this.loadMaster = loadMaster;
-        this.jumpers = jumpers;
+        this.jumper = jumper; // modified. List asemel Jumper
     }
 
     public int getLoadNr() {
@@ -29,12 +40,12 @@ public class Manifest {
         this.loadNr = loadNr;
     }
 
-    public LocalDate getJumpDate() {
-        return jumpDate;
+    public LocalDate getLoadDate() {
+        return loadDate;
     }
 
-    public void setJumpDate(LocalDate jumpDate) {
-        this.jumpDate = jumpDate;
+    public void setLoadDate(LocalDate loadDate) {
+        this.loadDate = loadDate;
     }
 
     public String getPlaneID() {
@@ -53,22 +64,41 @@ public class Manifest {
         this.loadMaster = loadMaster;
     }
 
-    public List<Jumper> getJumpers() {
-        return jumpers;
+//    public List<Jumper> getJumpers() {
+//        return jumpers;
+//    }
+//
+//    public void setJumpers(List<Jumper> jumpers) {
+//        this.jumpers = jumpers;
+//    }
+    public Jumper getJumper() {
+        return jumper;
     }
 
-    public void setJumpers(List<Jumper> jumpers) {
-        this.jumpers = jumpers;
+    public void setJumper(Jumper jumper) {
+        this.jumper = jumper;
     }
+
+
+    public List<String> getPersonalCodes() {
+        List<String> personalCodes = new ArrayList<>();
+        if (jumper != null) {
+            personalCodes.add(jumper.getPersonal_code());
+        }
+        return personalCodes;
+    }
+
+
 
     @Override
     public String toString() {
         return "Manifest{" +
                 "loadNr=" + loadNr +
-                ", jumpDate=" + jumpDate +
+                ", loadDate=" + loadDate +
                 ", planeID='" + planeID + '\'' +
-                ", loadMaster='" + jumper.getPersonal_code() + '\'' +
-                ", jumpers=" + jumpers +
+                ", loadMaster='" + loadMaster + '\'' + // (jumper != null ? jumper.getPersonal_code() : "")
+                //", jumpers=" + jumpers +
                 '}';
     }
+
 }

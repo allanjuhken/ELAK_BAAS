@@ -1,6 +1,8 @@
 package elak;
 
+import dao.ManifestDAO;
 import model.Jumper;
+import model.Manifest;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import utils.HibernateUtils;
@@ -26,7 +28,7 @@ public class Main {
 //        trn.commit();
 
 //        Transaction trn = session.beginTransaction();
-//        Jumper jumper = session.load(Jumper.class,"aju"); // loads jumper by personal_code / not case-sensitive
+//        Jumper jumper = session.load(Jumper.class,"aju"); // gives jumper by personal_code / not case-sensitive
 //        System.out.println(jumper);
 //        trn.commit();
 
@@ -35,6 +37,17 @@ public class Main {
 //        trn.commit();
 //        System.out.println(jumpers);
 
+//        Manifest manifest = new Manifest();
+//        manifest.setLoadNr(1);
+//        manifest.setLoadDate(LocalDate.now());
+//        manifest.setPlaneID("ES-ECG");
+//        manifest.setLoadMaster("jam");
+//        manifest.setJumpers();
+//        Transaction trn = session.beginTransaction();
+//        session.save(manifest);
+//        trn.commit();
+
+        ManifestDAO manifestDAO = new ManifestDAO();
 
 
     }
