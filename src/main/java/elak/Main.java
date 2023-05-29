@@ -13,52 +13,48 @@ import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws SQLException {
-        Session session = null;
+    public static void main(String[] args) {
 
-        try {
-            session = HibernateUtils.getCurrentSessionFromConfig();
-            Scanner scanner = new Scanner(System.in);
-            char again = 'y';
-            while (again == 'y') {
-                System.out.println("Choose one option (a,b,r,d)");
-                System.out.println("a - adding a new jumper");
-                System.out.println("b - adding jumpers on load");
-                System.out.println("c - reading jumpers data");
-//                System.out.println("d - deleting jumper");
 
-                char action = scanner.nextLine().charAt(0);
+        Session session = HibernateUtils.getCurrentSessionFromConfig();
+        Scanner scanner = new Scanner(System.in);
+        char again = 'y';
+        while (again == 'y') {
+            System.out.println("Choose one option (a,b,c,d)");
+            System.out.println("a - adding a new jumper");
+            System.out.println("b - adding jumpers on load");
+            System.out.println("c - reading jumpers data");
+            System.out.println("d - deleting jumper");
+            System.out.println("e - exit the program");
 
-                if (action == 'a') {
+            char action = scanner.nextLine().charAt(0);
 
-                    insertJumperData(session);
+            if (action == 'a') {
 
-                } else if (action == 'b') {
+                insertJumperData(session);
 
-                    addNewLoad(session);
+            } else if (action == 'b') {
 
-                } else if (action == 'c') {
+                addNewLoad(session);
 
-                    readJumperData(session);
+            } else if (action == 'c') {
 
-//                } else if (action == 'd') {
-//
-//                    deleteJumperData(session);
+                readJumperData(session);
 
-                } else {
-                    System.out.println("Invalid input!");
-                }
+            } else if (action == 'd') {
 
-                System.out.println("Do you want to continue? y/n");
-                again = scanner.nextLine().charAt(0);
+                deleteJumperData(session);
+
+            } else if (action == 'e') {
+
+                break;
+
+            } else {
+                System.out.println("Invalid input!");
             }
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
+            System.out.println("Do you want to continue? y/e");
+            again = scanner.nextLine().charAt(0);
         }
 
     }
@@ -177,6 +173,7 @@ public class Main {
             }
 
             session.getTransaction().commit();
+            System.out.println("Data successfully provided");
         } catch (Exception e) {
             session.getTransaction().rollback();
             System.out.println("Failed to read jumper data.");
@@ -184,33 +181,37 @@ public class Main {
         }
     }
 
-//    // TODO: 29.05.2023 java.lang.IllegalStateException: Session/EntityManager is closed
-//    private static void deleteJumperData(Session session) {
-//
-//        Scanner scanner = new Scanner(System.in);
-//        System.out.print("Enter the personal code of the jumper you want to delete: ");
-//        String personalCode = scanner.nextLine();
-//
-//        try {
-//            session.beginTransaction();
-//            Query query = session.createQuery("DELETE FROM Jumper WHERE personal_code = :personalCode");
-//            query.setParameter("personalCode", personalCode);
-//            //int rowCount = query.executeUpdate();
-//            session.getTransaction().commit();
-//
-//            //System.out.println("Deleted " + rowCount + " row(s) from the jumper table.");
-//        } catch (Exception e) {
-//            session.getTransaction().rollback();
-//            System.out.println("Failed to delete data from the jumper table.");
-//            e.printStackTrace();
-//        }
-//    }
+    // TODO: 29.05.2023 implementing method gives: java.lang.IllegalStateException: Session/EntityManager is closed 
+    private static void deleteJumperData(Session session) {
 
+        try {
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Enter the personal code of the jumper you want to delete: ");
+            String personalCode = scanner.nextLine();
+            
+            session.beginTransaction();
+            Query query = session.createQuery("DELETE FROM Jumper WHERE personal_code = :personalCode");
+            query.setParameter("personalCode", personalCode);
+            int rowCount = query.executeUpdate();
+            session.getTransaction().commit();
+
+            System.out.println("Deleted " + rowCount + " row(s) from the jumper table.");
+        } catch (Exception e) {
+            session.getTransaction().rollback();
+            System.out.println("Failed to delete data from the jumper table.");
+            e.printStackTrace();
+        }
+    }
 
 }
 
 
-//        Jumper jumper = new Jumper();
+
+
+
+
+
+//        Jumper jumper = new Jumper(); // works
 //        jumper.setName("Mellu Saarmets");
 //        jumper.setPersonal_code("MSA");
 //        jumper.setEmail("skygod@mail.eu");
@@ -302,42 +303,6 @@ public class Main {
 //        }
 //        trn.commit();
 
-////
-
-//        Transaction trn = session.beginTransaction(); // throws double value entry for table jumper_jumps, col- jumper_id
-//
-//        String[] jumperIds = {"pro","sal", "elo", "kka","msa", "awi", "ska", "jam", "asn"};
-//
-//        for (int i = 0; i < jumperIds.length; i++) {
-//            Manifest manifest = new Manifest();
-//            manifest.setLoadNr(3);
-//            manifest.setLoadDate(LocalDate.now());
-//            manifest.setJumperId(jumperIds[i]);
-//            manifest.setPlaneID("ES-ECG");
-//            manifest.setLoadMaster("jam");
-//
-//            session.save(manifest);
-//
-//            Jumper jumper = session.get(Jumper.class, jumperIds[i]);
-//
-//            // Retrieve the maximum jump number for the current jumper_id
-//            Query<Integer> maxJumpNrQuery = session.createQuery("SELECT MAX(jump.id.jumpNr) FROM JumperJumps jump WHERE jump.id.jumperId = :jumperId", Integer.class);
-//            maxJumpNrQuery.setParameter("jumperId", jumperIds[i]);
-//            Integer maxJumpNr = maxJumpNrQuery.uniqueResult();
-//            int jumpNr = (maxJumpNr != null) ? maxJumpNr + 1 : 1; // Increment the maximum jump number by 1 or start from 1 if no previous jumps
-//
-//            JumperJumpsId jumperJumpsId = new JumperJumpsId(jumperIds[i], jumpNr);
-//            JumperJumps jumperJumps = new JumperJumps(jumperJumpsId, jumper, "ES-ECG", LocalDate.now());
-//
-//            //session.merge(jumperJumps);
-//            try {
-//                session.saveOrUpdate(jumperJumps);
-//            } catch (ConstraintViolationException e) {
-//                session.update(jumperJumps);
-//            }
-//        }
-//
-//        trn.commit();
 
 //        JumperDAO jumperDAO = new JumperDAO();
 //        System.out.println(jumperDAO.getPersonalCodes());

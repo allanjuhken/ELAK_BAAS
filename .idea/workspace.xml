@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f960929-abdb-4a14-9c44-e3679dd42883" name="Changes" comment="elak_baas project updated">
+    <list default="true" id="2f960929-abdb-4a14-9c44-e3679dd42883" name="Changes" comment="elak_baas_tables.sql  file added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/elak/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/elak/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,13 +53,16 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Academy/Database_Example",
+    "last_opened_file_path": "C:/Academy/ELAK_BAAS/src/main/resources",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Academy\ELAK_BAAS\src\main\resources" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="model" />
     </key>
@@ -124,7 +128,13 @@
       <option name="presentableId" value="LOCAL−00003" />
       <updated>1685362106879</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL−00004" summary="elak_baas_tables.sql  file added">
+      <created>1685363113275</created>
+      <option name="number" value="LOCAL−00004" />
+      <option name="presentableId" value="LOCAL−00004" />
+      <updated>1685363113275</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -141,6 +151,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="elak_baas project created, Jumper, Jump, Manifest Classes added" />
     <MESSAGE value="elak_baas project updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="elak_baas project updated" />
+    <MESSAGE value="elak_baas_tables.sql  file added" />
+    <option name="LAST_COMMIT_MESSAGE" value="elak_baas_tables.sql  file added" />
   </component>
 </project>
