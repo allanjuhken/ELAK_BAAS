@@ -8,6 +8,11 @@ import java.util.List;
 @Table(name = "`manifest`", schema = "`elak_baas`")
 public class Manifest {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    @Column(name = "`jumper_id`")
+    private String jumperId;
+    @Column(name = "`load_nr`")
     private int loadNr;
     @Column(name = "`load_date`")
     private LocalDate loadDate;
@@ -15,21 +20,25 @@ public class Manifest {
     private String planeID;
     @Column(name = "`load_master`")
     private String loadMaster;
-    @Column(name = "`on_board`")
-    private String jumpersCodes; // modified, str instead of list
-    @ManyToOne
-    @JoinColumn(name = "personal_code")
-    public Jumper jumper;
 
 
     public Manifest(){}
 
-    public Manifest(int loadNr, LocalDate loadDate, String planeID, String loadMaster, Jumper jumper) {
+    public Manifest(int id, String jumperId, int loadNr, LocalDate loadDate, String planeID, String loadMaster) {
+        this.id = id;
+        this.jumperId = jumperId;
         this.loadNr = loadNr;
         this.loadDate = loadDate;
         this.planeID = planeID;
         this.loadMaster = loadMaster;
-        this.jumper = jumper; // modified. List asemel Jumper
+    }
+
+    public String getJumperId() {
+        return jumperId;
+    }
+
+    public void setJumperId(String jumperId) {
+        this.jumperId = jumperId;
     }
 
     public int getLoadNr() {
@@ -64,41 +73,26 @@ public class Manifest {
         this.loadMaster = loadMaster;
     }
 
-//    public List<Jumper> getJumpers() {
-//        return jumpers;
+
+//    public List<String> getPersonalCodes() {
+//        List<String> personalCodes = new ArrayList<>();
+//        if (jumper != null) {
+//            personalCodes.add(jumper.getPersonal_code());
+//        }
+//        return personalCodes;
 //    }
-//
-//    public void setJumpers(List<Jumper> jumpers) {
-//        this.jumpers = jumpers;
-//    }
-    public Jumper getJumper() {
-        return jumper;
-    }
-
-    public void setJumper(Jumper jumper) {
-        this.jumper = jumper;
-    }
-
-
-    public List<String> getPersonalCodes() {
-        List<String> personalCodes = new ArrayList<>();
-        if (jumper != null) {
-            personalCodes.add(jumper.getPersonal_code());
-        }
-        return personalCodes;
-    }
-
 
 
     @Override
     public String toString() {
         return "Manifest{" +
-                "loadNr=" + loadNr +
+                "id=" + id +
+                ", jumperId='" + jumperId + '\'' +
+                ", loadNr=" + loadNr +
                 ", loadDate=" + loadDate +
                 ", planeID='" + planeID + '\'' +
-                ", loadMaster='" + loadMaster + '\'' + // (jumper != null ? jumper.getPersonal_code() : "")
-                //", jumpers=" + jumpers +
+                ", loadMaster='" + loadMaster + '\'' +
                 '}';
     }
-
 }
+

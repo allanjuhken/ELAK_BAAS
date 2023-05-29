@@ -16,16 +16,18 @@ public class Jumper {
     @Column(name = "`licence`")
     private String licence;
     @Column(name = "`account_balance`")
-    private long balance;
+    private int balance;
     @Column(name = "`vvh`")
     private LocalDate reservePractice;
     @Column(name = "`health_declaration`")
     private LocalDate healthDeclaration;
+    @Column(name = "`total_jumps`")
+    private int totalJumpNr;
 
     public Jumper(){}
 
-    public Jumper(String personal_code, String name, String email, String phone,
-                  String licence, long balance, LocalDate reservePractice, LocalDate healthDeclaration) {
+    public Jumper(String personal_code, String name, String email, String phone, String licence,
+                  int balance, LocalDate reservePractice, LocalDate healthDeclaration, int totalJumpNr) {
         this.personal_code = personal_code;
         this.name = name;
         this.email = email;
@@ -34,6 +36,7 @@ public class Jumper {
         this.balance = balance;
         this.reservePractice = reservePractice;
         this.healthDeclaration = healthDeclaration;
+        this.totalJumpNr = totalJumpNr;
     }
 
     public String getPersonal_code() {
@@ -80,7 +83,7 @@ public class Jumper {
         return balance;
     }
 
-    public void setBalance(long balance) {
+    public void setBalance(int balance) {
         this.balance = balance;
     }
 
@@ -100,6 +103,14 @@ public class Jumper {
         this.healthDeclaration = healthDeclaration;
     }
 
+    public int getTotalJumpNr() {
+        return totalJumpNr;
+    }
+
+    public void setTotalJumpNr(int totalJumpNr) {
+        this.totalJumpNr = totalJumpNr;
+    }
+
     @Override
     public String toString() {
         return "Jumper{" +
@@ -111,6 +122,7 @@ public class Jumper {
                 ", balance=" + balance +
                 ", reservePractice=" + reservePractice +
                 ", healthDeclaration=" + healthDeclaration +
+                ", totalJumpNr=" + totalJumpNr +
                 '}';
     }
 }

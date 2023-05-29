@@ -27,7 +27,9 @@
 
         <mapping class="model.Jumper" />
         <mapping class="model.Manifest" />
-
+        <mapping class="model.Aircraft" />
+        <mapping class="model.JumperJumps" />
+<!--        <mapping class="model.JumperJumpsId" />-->
 
 
     </session-factory>

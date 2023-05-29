@@ -16,16 +16,42 @@ import java.util.List;
 
 public class ManifestDAO {
 
-    public List<Jumper> getJumpersOnLoadNr(int loadNr){
-
+    public List<Jumper> getJumpersOnLoadNr(int loadNr) {
         Session session = HibernateUtils.getCurrentSessionFromConfig();
-        Transaction trn = session.beginTransaction();
-        Manifest manifest = session.load(Manifest.class,loadNr);
-        List<Jumper> jumpersOnLoad = manifest.getJumper();
-        System.out.println(jumpersOnLoad);
-        trn.commit();
+        Transaction transaction = null;
+        List<Jumper> jumpersOnLoad = new ArrayList<>();
+
+        try {
+            transaction = session.beginTransaction();
+            Manifest manifest = session.get(Manifest.class, loadNr);
+
+            if (manifest != null) {
+                String jumperId = manifest.getJumperId();
+                Jumper jumper = session.get(Jumper.class, jumperId);
+
+                if (jumper != null) {
+                    jumpersOnLoad.add(jumper);
+                    System.out.println(jumpersOnLoad);
+                } else {
+                    System.out.println("Jumper not found for jumperId: " + jumperId);
+                }
+            } else {
+                System.out.println("Manifest not found for load number: " + loadNr);
+            }
+
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            System.out.println("Failed to retrieve jumpers on load.");
+            e.printStackTrace();
+        }
+
         return jumpersOnLoad;
     }
+
+
 
 //    public List<String> getPersonalCodes() {
 //        List<String> personalCodes = new ArrayList<>();

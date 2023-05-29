@@ -5,12 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f960929-abdb-4a14-9c44-e3679dd42883" name="Changes" comment="elak_baas project created, Jumper, Jump, Manifest Classes added">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/JumpDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/JumperDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/ManifestDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/Aircraft.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/JumperJumps.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/JumperJumpsId.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/JumpDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/JumperDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/JumperDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ManifestDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ManifestDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/elak/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/elak/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Jump.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Jump.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Jump.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Jumper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Jumper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Manifest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Manifest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
     </list>
@@ -59,12 +63,17 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Academy/JavaRemoteEE26",
+    "last_opened_file_path": "C:/Academy/Database_Example",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="model" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.elak.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="example.Main" />
@@ -114,7 +123,13 @@
       <option name="presentableId" value="LOCAL−00001" />
       <updated>1684932741783</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL−00002" summary="elak_baas project created, Jumper, Jump, Manifest Classes added">
+      <created>1685030216932</created>
+      <option name="number" value="LOCAL−00002" />
+      <option name="presentableId" value="LOCAL−00002" />
+      <updated>1685030216932</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
