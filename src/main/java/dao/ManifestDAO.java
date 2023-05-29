@@ -52,7 +52,7 @@ public class ManifestDAO {
     }
 
 
-    // TODO: 29.05.2023  method adds load to manifest, increases jump.nr ++1 in jumper_jumps updates all existing values  
+    // TODO:   method adds load to manifest, increases jump.nr ++1 in jumper_jumps updates all existing values
 //    Transaction trn = session.beginTransaction(); // throws double value entry for table jumper_jumps, col- jumper_id
 //
 //        String[] jumperIds = {"pro","sal", "elo", "kka","msa", "awi", "ska", "jam", "asn"};

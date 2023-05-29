@@ -181,7 +181,7 @@ public class Main {
         }
     }
 
-    // TODO: 29.05.2023 implementing method gives: java.lang.IllegalStateException: Session/EntityManager is closed 
+    // TODO:  implementing method gives: java.lang.IllegalStateException: Session/EntityManager is closed
     private static void deleteJumperData(Session session) {
 
         try {
